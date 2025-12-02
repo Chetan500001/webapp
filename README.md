@@ -7,9 +7,8 @@ Sample hello world webapp
 mvn clean package
 java -jar target/puppet-webapp-<VERSION>.jar
 ```
-Change made for pull request by @notsarthak
 
 
 
+This is version 2.0 update by chetan
 
-Version 2.0 update by Chetan
