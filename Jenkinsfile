@@ -26,9 +26,12 @@ pipeline {
         }
        stage('Sonar-Report') {
     steps {
-        bat "mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=%SONAR_TOKEN%"
+        withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
+            bat "mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=%SONAR_TOKEN%"
+        }
     }
 }
+
 
     }
 }
