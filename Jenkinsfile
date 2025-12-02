@@ -24,10 +24,11 @@ pipeline {
                 }
             }
         }
-        stage('Sonar-Report') {
-            steps {
-                bat 'mvn clean install sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.analysis.mode=publish'
-            }
-        }
+       stage('Sonar-Report') {
+    steps {
+        bat "mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.login=%SONAR_TOKEN%"
+    }
+}
+
     }
 }
